@@ -42,6 +42,9 @@ function App() {
 			localStorage.setItem("count",JSON.stringify(counter));
 		},0);
 	};
+	useEffect(() => {
+		onSaveStorage(eventsData);
+	}, [eventsData]);
 
 	const onEdit = (id, newItem) => {
 	setData(eventsData.map((item)=>{
@@ -50,12 +53,12 @@ function App() {
 		}
 		return item
 	}));
-	onSaveStorage(eventsData);
+	//onSaveStorage(eventsData);
 	};
 
 	const onDelete = (id) => {
 		setData(eventsData.filter(item => item.id !== id))
-		onSaveStorage(eventsData);
+		//onSaveStorage(eventsData);
 	};
 
 	const createEvent = () => {
@@ -69,7 +72,7 @@ function App() {
 		onChangeEventName("");
 		setId("");
 		setCounter(counter + 1);
-		onSaveStorage(eventsData);
+		//onSaveStorage(eventsData);
 	}
 
   return (

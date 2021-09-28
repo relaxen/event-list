@@ -95,23 +95,26 @@ const EditEvent = (props) => {
 								time={props.time}
 								note={props.note}
 								where={props.where}/>
-			<EditButton eventType={props.eventType}
-								onChangeEventType={props.onChangeEventType}
-								onChangeEventName={props.onChangeEventName}
-								onChangeBudget={props.onChangeBudget}
-								onChangeNote={props.onChangeNote}
-								onChangeWhere={props.onChangeWhere}
-								onChangeTime={props.onChangeTime}
-								eventName={props.eventName}
-								budget={props.budget}
-								time={props.time}
-								note={props.note}
-								where={props.where}
-								date={props.date}
-								eventsData={props.eventsData}
-								createEvent={props.createEvent}
-								onEdit={props.onEdit}
-								id={props.currentId}/>
+			<div className="event-body__buttons">
+				<button onClick={()=>{}}><NavLink to="/">Отмена</NavLink></button>
+				<EditButton eventType={props.eventType}
+									onChangeEventType={props.onChangeEventType}
+									onChangeEventName={props.onChangeEventName}
+									onChangeBudget={props.onChangeBudget}
+									onChangeNote={props.onChangeNote}
+									onChangeWhere={props.onChangeWhere}
+									onChangeTime={props.onChangeTime}
+									eventName={props.eventName}
+									budget={props.budget}
+									time={props.time}
+									note={props.note}
+									where={props.where}
+									date={props.date}
+									eventsData={props.eventsData}
+									createEvent={props.createEvent}
+									onEdit={props.onEdit}
+									id={props.currentId}/>
+			</div>
 		</div>
 	)
 };

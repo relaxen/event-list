@@ -1,7 +1,11 @@
 .App {
-  text-align: center;
+width: 1200px;
+margin: 0 auto;
+	
 }
-
+html{
+	background-image: linear-gradient(#fff,#bbb);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -12,7 +16,27 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.event-body{
+	flex-grow: 1;
+}
+.event-body a{
+	color: #fff;
+	text-decoration: none;
+}
+.event-body button{
+	border-radius: 5px;
+	background-image: linear-gradient(red, purple);
+	color: #fff;
+	margin-left: 5px;
+}
+.add-page button, .add-page a{
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+	background-image: linear-gradient(red, purple);
+	color: #fff;
+	margin-left: 5px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -39,7 +63,8 @@
 .top-side{
 	display: flex;
 	flex-flow: row nowrap;
-	justify-content: center;
+	justify-content: space-between;
+
 }
 .event-body__buttons{
 	display: flex;
@@ -58,10 +83,21 @@
 	border: 1px solid black;
 	border-radius: 20px;
 	padding: 10px;
+	background:#fff;
+}
+.add-page .event-body__buttons{
+	visibility: visible;
 }
 .event-body__item:hover .event-body__buttons{
 	visibility: visible;
 }
 .event-body__buttons{
 	visibility: hidden;
+}
+.add-page{
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
 }

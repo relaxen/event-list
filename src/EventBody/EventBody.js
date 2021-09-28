@@ -78,6 +78,7 @@ const EventBody = (props) => {
 						props.onChangeEventName("");
 						props.setId("");
 			}}><NavLink to="/new">Добавить событие</NavLink></button>
+			
 		</div>
 	)
 };

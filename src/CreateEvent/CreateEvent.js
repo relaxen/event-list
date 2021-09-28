@@ -93,6 +93,8 @@ const CreateEvent = (props) => {
 								time={props.time}
 								note={props.note}
 								where={props.where}/>
+			<div className="event-body__buttons">
+			<button onClick={()=>{}}><NavLink to="/">Отмена</NavLink></button>
 			<CreateButton 
 								// eventType={props.eventType}
 								// onChangeEventType={props.onChangeEventType}
@@ -111,6 +113,7 @@ const CreateEvent = (props) => {
 								// counter={counter}
 								// setCounter={setCounter}
 								/>
+			</div>
 		</div>
 	)
 };
