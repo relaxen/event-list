@@ -79,23 +79,35 @@ function App() {
     <div className="App">
 			<BrowserRouter>
 				<Route exact={true} path="/" render={() => <div className="main-page">
-					<Calendar
-						onChange={onChangeDate}
-						value={date}
-						tileClassName={({ date, view }) => {
-							let dates = eventsData.map((item)=>{
-								return item.date
-							});
-							let curr_date = date.getDate();
-							let curr_month = date.getMonth() + 1;
-							let curr_year = date.getFullYear();
-							let formDate = `${curr_date}.${curr_month}.${curr_year}`;
+					<div className="left-wrapper">
+						<Calendar
+							onChange={onChangeDate}
+							value={date}
+							tileClassName={({ date, view }) => {
+								let dates = eventsData.map((item)=>{
+									return item.date
+								});
+								let curr_date = date.getDate();
+								let curr_month = date.getMonth() + 1;
+								let curr_year = date.getFullYear();
+								let formDate = `${curr_date}.${curr_month}.${curr_year}`;
 
-							if(dates.find(x=> x===formDate) ) {
-								return 'highlight'; // your class name
-							}
-						}}
-					/>
+								if(dates.find(x=> x===formDate) ) {
+									return 'highlight'; // your class name
+								}
+							}}
+						/>
+						<button onClick={()=>{
+								onChangeBudget("");
+								onChangeTime("");
+								onChangeWhere("");
+								onChangeEventType("");
+								onChangeEventName("");
+								setId("");
+						}}><NavLink to="/new">Добавить событие</NavLink></button>
+
+					</div>
+					
 					<EventBody 
 						date={formDate}
 						eventsData={eventsData}

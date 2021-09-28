@@ -3,6 +3,48 @@ import { NavLink } from 'react-router-dom';
 
 const CreateButton = (props) => {
 
+	if(props.eventName.length<4){
+		return (<div class="hidden-wrapper">
+			
+			<button disabled onClick={()=>{}}>Создать</button>
+			<p class="hidden">Заполните Название</p></div>)
+	}
+
+	switch (props.eventType) {
+		case "Праздник":
+			if (props.budget.length<1){
+				return (<div class="hidden-wrapper">
+				<button disabled onClick={()=>{}}>Создать</button>
+				<p class="hidden">Заполните бюджет</p></div>)
+			}
+			break;
+		case "Мероприятие":
+			if (props.where.length<4){
+				return (<div>
+				
+				<button disabled onClick={()=>{}}>Создать</button>
+				<p class="hidden">Заполните место</p></div>)
+			} else if (props.time.length<4){
+				return (<div class="hidden-wrapper">
+					
+					<button disabled onClick={()=>{}}>Создать</button>
+					<p class="hidden">Заполните время</p></div>)
+			}
+			break;
+		case "Заметка":
+			if (props.note.length<4){
+				return (<div class="hidden-wrapper">
+				
+				<button disabled onClick={()=>{}}>Создать</button>
+				<p class="hidden">Введите текст заметки</p></div>)
+			}
+			break;
+		default:
+			return (<div class="hidden-wrapper">
+				
+			<button disabled onClick={()=>{}}>Редактировать</button>
+			<p class="hidden">выберете тип события</p></div>)
+		}
 return <button onClick={props.createEvent}><NavLink to="/">Создать</NavLink></button>
 
 };
@@ -15,6 +57,7 @@ const FieldSet = (props) => {
 			result = <div><div>
 								<h3>Бюджет</h3>
 								<input
+								required
 								placeholder="0"
 								type="number"
 								value={props.budget}
@@ -26,12 +69,16 @@ const FieldSet = (props) => {
 									<div>
 										<h3>Куда идти?</h3>
 										<input
+										minlength="4"
+										required
 										value={props.where}
 										onChange={e => props.onChangeWhere(e.target.value)}/>
 									</div>
 									<div>
 										<h3>Во сколько?</h3>
 										<input
+										type="time"
+										required
 										value={props.time}
 										onChange={e => props.onChangeTime(e.target.value)}/>
 									</div>
@@ -41,6 +88,8 @@ const FieldSet = (props) => {
 			result = <div><div>
 								<h3>Заметка</h3>
 								<input
+								minlength="4"
+								required
 								value={props.note}
 								onChange={e => props.onChangeNote(e.target.value)}/>
 							</div></div>;
@@ -59,12 +108,14 @@ const FieldSet = (props) => {
 const CreateEvent = (props) => {
 
 	return(
-		<div>
+		<form>
 			
 			<h2>Добавить событие</h2>
 			<div>
 				<h3>Название события</h3>
-				<input value={props.eventName} onChange={e => props.onChangeEventName(e.target.value)}/>
+				<label>
+				<input title="Не заполнено название" minlength="4" required value={props.eventName} onChange={e => props.onChangeEventName(e.target.value)}/>
+				</label>
 			</div>
 			<div>
 				<h3>Тип События</h3>
@@ -96,17 +147,18 @@ const CreateEvent = (props) => {
 			<div className="event-body__buttons">
 			<button onClick={()=>{}}><NavLink to="/">Отмена</NavLink></button>
 			<CreateButton 
-								// eventType={props.eventType}
+								eventType={props.eventType}
 								// onChangeEventType={props.onChangeEventType}
 								// onChangeEventName={props.onChangeEventName}
 								// onChangeBudget={props.onChangeBudget}
 								// onChangeNote={props.onChangeNote}
 								// onChangeWhere={props.onChangeWhere}
 								// onChangeTime={props.onChangeTime}
-								// budget={props.budget}
-								// time={props.time}
-								// note={props.note}
-								// where={props.where}
+								budget={props.budget}
+								time={props.time}
+								note={props.note}
+								where={props.where}
+								eventName={props.eventName}
 								// date={props.date}
 								// eventsData={props.eventsData}
 								createEvent={props.createEvent}
@@ -114,7 +166,7 @@ const CreateEvent = (props) => {
 								// setCounter={setCounter}
 								/>
 			</div>
-		</div>
+		</form>
 	)
 };
 

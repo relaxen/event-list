@@ -70,15 +70,6 @@ const EventBody = (props) => {
 	return(
 		<div className="event-body">
 			{events}
-			<button onClick={()=>{
-						props.onChangeBudget("");
-						props.onChangeTime("");
-						props.onChangeWhere("");
-						props.onChangeEventType("");
-						props.onChangeEventName("");
-						props.setId("");
-			}}><NavLink to="/new">Добавить событие</NavLink></button>
-			
 		</div>
 	)
 };
