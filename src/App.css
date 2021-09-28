@@ -25,17 +25,19 @@ html{
 }
 .event-body button{
 	border-radius: 5px;
-	background-image: linear-gradient(red, purple);
+	background: grey;
 	color: #fff;
 	margin-left: 5px;
+	margin-right: 5px;
 }
 .add-page button, .add-page a{
 	color: #fff;
 	text-decoration: none;
 	border-radius: 5px;
-	background-image: linear-gradient(red, purple);
+	background: grey;
 	color: #fff;
 	margin-left: 5px;
+	margin-right: 5px;
 }
 .App-header {
   background-color: #282c34;
@@ -100,4 +102,8 @@ html{
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
+}
+.react-calendar__tile.highlight{
+	background-color: blueviolet;
+	color:#fff;
 }

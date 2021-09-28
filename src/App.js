@@ -82,6 +82,19 @@ function App() {
 					<Calendar
 						onChange={onChangeDate}
 						value={date}
+						tileClassName={({ date, view }) => {
+							let dates = eventsData.map((item)=>{
+								return item.date
+							});
+							let curr_date = date.getDate();
+							let curr_month = date.getMonth() + 1;
+							let curr_year = date.getFullYear();
+							let formDate = `${curr_date}.${curr_month}.${curr_year}`;
+
+							if(dates.find(x=> x===formDate) ) {
+								return 'highlight'; // your class name
+							}
+						}}
 					/>
 					<EventBody 
 						date={formDate}
